@@ -12,7 +12,7 @@
 
   - name: Extract Simple-HTML-app-main.zip into /tmp
     ansible.builtin.unarchive:
-      src: https://github.com/haydar1994/Simple-HTML-app/archive/refs/heads/main.zip
+      src: https://github.com/hayRez/Simple-HTML-app/archive/refs/heads/main.zip
       dest: /tmp
       remote_src: yes
 

@@ -8,14 +8,14 @@ variable "region" {
 variable "ssh_key_public" {
   type    = string
   #Replace this with the location of you public key .pub
-  default = "C:\\Users\\Haydar\\.ssh\\id_rsa.pub"
+  default = "C:\\Users\\Hay\\.ssh\\id_rsa.pub"
 
 }
 
 variable "ssh_key_private" {
   type    = string
   #Replace this with the location of you private key
-  default = "C:\\Users\\Haydar\\.ssh\\id_rsa"
+  default = "C:\\Users\\Hay\\.ssh\\id_rsa"
 }
 
 variable "subnet_ips" {}

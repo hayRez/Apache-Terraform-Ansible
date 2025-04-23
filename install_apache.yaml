@@ -1,0 +1,33 @@
+---
+- name: Web Server
+  hosts: localhost
+  remote_user: ec2-user
+  become: true
+
+  tasks:
+  - name: Install apache packages 
+    yum:
+      name: httpd
+      state: latest
+
+  - name: Extract Simple-HTML-app-main.zip into /tmp
+    ansible.builtin.unarchive:
+      src: https://github.com/haydar1994/Simple-HTML-app/archive/refs/heads/main.zip
+      dest: /tmp
+      remote_src: yes
+
+  - name: Copy Simple-HTML-app-main directory contents into /var/www/html
+    ansible.builtin.copy:
+      src: /tmp/Simple-HTML-app-main/
+      dest: /var/www/html/
+
+  - name: Ensure httpd is running
+    service:
+      name: httpd 
+      state: started
+
+  handlers:
+    - name: Restart apache
+      ansible.builtin.service:
+        name: httpd
+        state: restarted
